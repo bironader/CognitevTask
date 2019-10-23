@@ -11,7 +11,8 @@ import com.example.cognetivtask.features.Ui.main.MainActivity;
 import com.example.cognetivtask.features.viewmodel.splash.SplashViewModel;
 import com.example.cognetivtask.features.viewmodel.ViewModelProviderFactory;
 import com.example.congnitevtask.R;
-import com.example.congnitevtask.databinding.SplashMainBinding;
+
+import com.example.mvvmstarter.databinding.SplashMainBinding;
 import com.foursquare.android.nativeoauth.FoursquareOAuth;
 import com.iamhabib.easy_preference.EasyPreference;
 
