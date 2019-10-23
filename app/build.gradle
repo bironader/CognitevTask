@@ -4,12 +4,16 @@ apply from: '../versions.gradle'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.mvvmstarter"
+        applicationId "com.example.congitevtask"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled = true
     }
     buildTypes {
         release {
