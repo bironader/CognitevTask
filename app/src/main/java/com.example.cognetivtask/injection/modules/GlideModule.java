@@ -1,11 +1,12 @@
-package com.example.mvvmstarter.injection.modules;
+package com.example.cognetivtask.injection.modules;
 
 import android.app.Application;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.request.RequestOptions;
-import com.example.mvvmstarter.R;
+import com.example.congnitevtask.R;
+
 
 import javax.inject.Singleton;
 

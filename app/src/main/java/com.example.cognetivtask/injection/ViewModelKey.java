@@ -1,4 +1,4 @@
-package com.example.mvvmstarter.injection;
+package com.example.cognetivtask.injection;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

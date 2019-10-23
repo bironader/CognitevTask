@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MVVMStarter</string>
+    <string name="client_id">IGCDGFTCLXOGSGGQ2IKFCISLQSHYUM44QKFQAYQ4IVNBLVXD</string>
+    <string name="client_secret">NIHW4ZEY4WXPHYTGIKTBEG0RRE2MH2ULYLCUCUGIT54XLXKQ</string>
+    <string name="login">Login With FourSquare</string>
+
 </resources>

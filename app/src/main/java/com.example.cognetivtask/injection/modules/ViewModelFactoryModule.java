@@ -1,6 +1,7 @@
-package com.example.mvvmstarter.injection.modules;
+package com.example.cognetivtask.injection.modules;
 
-import com.example.mvvmstarter.features.ViewModel.ViewModelProviderFactory;
+import com.example.cognetivtask.features.viewmodel.ViewModelProviderFactory;
+
 
 import androidx.lifecycle.ViewModelProvider;
 import dagger.Binds;

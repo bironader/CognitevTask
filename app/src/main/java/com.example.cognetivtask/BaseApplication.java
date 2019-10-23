@@ -1,8 +1,7 @@
-package com.example.mvvmstarter;
+package com.example.cognetivtask;
 
 
-
-import com.example.mvvmstarter.injection.component.DaggerAppComponent;
+import com.example.cognetivtask.injection.component.DaggerAppComponent;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;

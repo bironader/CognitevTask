@@ -1,11 +1,10 @@
-package com.example.mvvmstarter.features.ViewModel;
+package com.example.cognetivtask.features.viewmodel;
 
 
 import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
-import javax.inject.Singleton;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;

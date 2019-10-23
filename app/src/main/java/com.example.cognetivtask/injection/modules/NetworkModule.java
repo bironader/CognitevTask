@@ -1,9 +1,10 @@
-package com.example.mvvmstarter.injection.modules;
+package com.example.cognetivtask.injection.modules;
 
 import android.app.Application;
 import android.content.Context;
 
-import com.example.mvvmstarter.BuildConfig;
+
+import com.facebook.stetho.BuildConfig;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
