@@ -25,5 +25,17 @@ public class MainActivity extends DaggerAppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mainViewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(MainViewModel.class);
+        mainViewModel.getPlaces().observe(this, places -> {
+
+        });
+
+        mainViewModel.getError().observe(this, isError -> {
+
+        });
+
+
+        mainViewModel.getLoading().observe(this, isLoading -> {
+
+        });
     }
 }

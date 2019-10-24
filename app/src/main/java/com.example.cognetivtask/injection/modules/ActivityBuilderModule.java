@@ -3,7 +3,9 @@ package com.example.cognetivtask.injection.modules;
 
 import com.example.cognetivtask.features.Ui.main.MainActivity;
 import com.example.cognetivtask.features.Ui.splash.SplashActivity;
-import com.example.cognetivtask.injection.modules.SplashViewModelModule.SplashActivityViewModelModule;
+import com.example.cognetivtask.injection.modules.MainModule.MainViewModelModule;
+import com.example.cognetivtask.injection.modules.MainModule.PlacesApiModule;
+import com.example.cognetivtask.injection.modules.SplashModule.SplashActivityViewModelModule;
 
 
 import dagger.Module;
@@ -16,7 +18,7 @@ public abstract class ActivityBuilderModule {
     @ContributesAndroidInjector(modules = {SplashActivityViewModelModule.class})
     abstract SplashActivity splashActivity();
 
-
+    @ContributesAndroidInjector(modules = {MainViewModelModule.class, PlacesApiModule.class})
     abstract MainActivity mainActivity();
 
 }

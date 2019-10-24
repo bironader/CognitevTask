@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 
 
-import com.facebook.stetho.BuildConfig;
+import com.example.congnitevtask.BuildConfig;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -28,7 +28,7 @@ import timber.log.Timber;
 public abstract class NetworkModule {
 
     private static String getBaseUrl() {
-        return BuildConfig.APPLICATION_ID;
+        return BuildConfig.FourSquareBaseUrl;
     }
 
     @Provides
@@ -58,7 +58,7 @@ public abstract class NetworkModule {
 
     @Provides
     @Singleton
-   static HttpLoggingInterceptor provideHttpLoggingInterceptor() {
+    static HttpLoggingInterceptor provideHttpLoggingInterceptor() {
         HttpLoggingInterceptor loggingInterceptor =
                 new HttpLoggingInterceptor(message -> Timber.d(message));
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
@@ -67,13 +67,13 @@ public abstract class NetworkModule {
 
     @Provides
     @Singleton
-   static  StethoInterceptor provideStethoInterceptor() {
+    static StethoInterceptor provideStethoInterceptor() {
         return new StethoInterceptor();
     }
 
     @Provides
     @Singleton
-   static ChuckInterceptor provideChuckInterceptor(Application application) {
+    static ChuckInterceptor provideChuckInterceptor(Application application) {
         return new ChuckInterceptor(application.getApplicationContext());
     }
 
@@ -89,7 +89,7 @@ public abstract class NetworkModule {
 
     @Provides
     @Singleton
-   static Interceptor provideHeaderInterceptor() {
+    static Interceptor provideHeaderInterceptor() {
         return chain -> {
             Request request = chain.request();
 

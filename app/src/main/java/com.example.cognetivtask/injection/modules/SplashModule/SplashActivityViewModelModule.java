@@ -1,4 +1,4 @@
-package com.example.cognetivtask.injection.modules.SplashViewModelModule;
+package com.example.cognetivtask.injection.modules.SplashModule;
 
 import androidx.lifecycle.ViewModel;
 

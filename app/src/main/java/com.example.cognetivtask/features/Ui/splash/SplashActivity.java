@@ -12,7 +12,8 @@ import com.example.cognetivtask.features.viewmodel.splash.SplashViewModel;
 import com.example.cognetivtask.features.viewmodel.ViewModelProviderFactory;
 import com.example.congnitevtask.R;
 
-import com.example.mvvmstarter.databinding.SplashMainBinding;
+
+import com.example.congnitevtask.databinding.SplashMainBinding;
 import com.foursquare.android.nativeoauth.FoursquareOAuth;
 import com.iamhabib.easy_preference.EasyPreference;
 
@@ -37,6 +38,7 @@ public class SplashActivity extends DaggerAppCompatActivity implements SplashVie
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+//        setContentView(R.layout.splash_main);
         SplashMainBinding splashMainBinding = DataBindingUtil.setContentView(this, R.layout.splash_main);
         splashViewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(SplashViewModel.class);
         splashMainBinding.setSplashViewModel(splashViewModel);
