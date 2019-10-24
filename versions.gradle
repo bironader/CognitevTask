@@ -1,4 +1,4 @@
-ext{
+ext {
 
     versions = [
             support          : "27.1.0",
@@ -16,9 +16,10 @@ ext{
             cloudMessaging   : '17.0.0',
             firebaseAuth     : '16.0.1',
             googleAuth       : '15.0.1',
-            rx : '2.1.1',
-            timber:'4.5.1',
-            mvvm: '2.1.0'
+            location         : '17.0.0',
+            rx               : '2.1.1',
+            timber           : '4.5.1',
+            mvvm             : '2.1.0'
     ]
     rxJava = [
             rxJava   : "io.reactivex.rxjava2:rxjava:$versions.rx",
@@ -34,22 +35,22 @@ ext{
 
     okHttp = [
             logger: "com.squareup.okhttp3:logging-interceptor:$versions.okHttp",
-            okhttp  : "com.squareup.okhttp3:okhttp:$versions.okHttp"
+            okhttp: "com.squareup.okhttp3:okhttp:$versions.okHttp"
     ]
 
     googlePlayServiceDeps = [
             authentication   : "com.google.android.gms:play-services-auth:$versions.googleAuth",
             firebaseAuth     : "com.google.firebase:firebase-auth:$versions.firebaseAuth",
-            firebaseMessaging: "com.google.firebase:firebase-messaging:$versions.cloudMessaging"
+            firebaseMessaging: "com.google.firebase:firebase-messaging:$versions.cloudMessaging",
+            location         : "com.google.android.gms:play-services-location:$versions.location"
     ]
 
     daggerDeps = [
-            androidDagger: "com.google.dagger:dagger-android:$versions.dagger",
+            androidDagger       : "com.google.dagger:dagger-android:$versions.dagger",
             androidSupportDagger: "com.google.dagger:dagger-android-support:$versions.dagger",
-            dagger: "com.google.dagger:dagger:$versions.dagger"
+            dagger              : "com.google.dagger:dagger:$versions.dagger"
 
     ]
-
 
 
     networkLibs = retrofit.values() + okHttp.values()

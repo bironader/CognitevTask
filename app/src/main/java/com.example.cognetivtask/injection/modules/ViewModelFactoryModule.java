@@ -1,6 +1,6 @@
 package com.example.cognetivtask.injection.modules;
 
-import com.example.cognetivtask.features.viewmodel.ViewModelProviderFactory;
+import com.example.cognetivtask.features.ViewModelProviderFactory;
 
 
 import androidx.lifecycle.ViewModelProvider;

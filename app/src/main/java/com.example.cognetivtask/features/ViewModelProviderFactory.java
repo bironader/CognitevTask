@@ -1,4 +1,4 @@
-package com.example.cognetivtask.features.viewmodel;
+package com.example.cognetivtask.features;
 
 
 import java.util.Map;

@@ -8,7 +8,7 @@
 
         <variable
             name="splashViewModel"
-            type="com.example.cognetivtask.features.viewmodel.splash.SplashViewModel" />
+            type="com.example.cognetivtask.features.splash.SplashViewModel" />
     </data>
 
     <LinearLayout

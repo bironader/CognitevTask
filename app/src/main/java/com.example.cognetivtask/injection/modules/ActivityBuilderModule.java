@@ -1,8 +1,9 @@
 package com.example.cognetivtask.injection.modules;
 
 
-import com.example.cognetivtask.features.Ui.main.MainActivity;
-import com.example.cognetivtask.features.Ui.splash.SplashActivity;
+
+import com.example.cognetivtask.features.main.MainActivity;
+import com.example.cognetivtask.features.splash.SplashActivity;
 import com.example.cognetivtask.injection.modules.MainModule.MainViewModelModule;
 import com.example.cognetivtask.injection.modules.MainModule.PlacesApiModule;
 import com.example.cognetivtask.injection.modules.SplashModule.SplashActivityViewModelModule;

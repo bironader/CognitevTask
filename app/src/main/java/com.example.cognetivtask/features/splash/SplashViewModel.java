@@ -1,4 +1,4 @@
-package com.example.cognetivtask.features.viewmodel.splash;
+package com.example.cognetivtask.features.splash;
 
 import android.content.Intent;
 import android.view.View;
@@ -39,10 +39,10 @@ public class SplashViewModel extends ViewModel {
         listener.attemptLogin();
     }
 
-    public void setListener(SplashListener listener) {
+    void setListener(SplashListener listener) {
         this.listener = listener;
     }
-    public void onCompleteConnect(int resultCode, Intent data) {
+    void onCompleteConnect(int resultCode, Intent data) {
         AuthCodeResponse codeResponse = FoursquareOAuth.getAuthCodeFromResult(resultCode, data);
         Exception exception = codeResponse.getException();
 

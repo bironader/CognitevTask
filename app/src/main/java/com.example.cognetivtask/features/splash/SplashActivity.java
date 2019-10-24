@@ -1,4 +1,4 @@
-package com.example.cognetivtask.features.Ui.splash;
+package com.example.cognetivtask.features.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +7,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.cognetivtask.Constants;
-import com.example.cognetivtask.features.Ui.main.MainActivity;
-import com.example.cognetivtask.features.viewmodel.splash.SplashViewModel;
-import com.example.cognetivtask.features.viewmodel.ViewModelProviderFactory;
+
+import com.example.cognetivtask.features.ViewModelProviderFactory;
+import com.example.cognetivtask.features.main.MainActivity;
 import com.example.congnitevtask.R;
 
 

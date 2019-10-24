@@ -4,6 +4,7 @@
     package="com.example.congnitevtask">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:name="com.example.cognetivtask.BaseApplication"
@@ -14,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.example.cognetivtask.features.Ui.splash.MainActivity"></activity>
+        <activity
+            android:name="com.example.cognetivtask.features.Ui.main.MainActivity"
+            tools:ignore="InnerclassSeparator" />
         <activity
             android:name="com.example.cognetivtask.features.Ui.splash.SplashActivity"
             tools:ignore="InnerclassSeparator">

@@ -3,7 +3,7 @@ package com.example.cognetivtask.injection.modules.SplashModule;
 import androidx.lifecycle.ViewModel;
 
 
-import com.example.cognetivtask.features.viewmodel.splash.SplashViewModel;
+import com.example.cognetivtask.features.splash.SplashViewModel;
 import com.example.cognetivtask.injection.ViewModelKey;
 
 import dagger.Binds;
