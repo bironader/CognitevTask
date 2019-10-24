@@ -24,7 +24,7 @@ public class SplashViewModel extends ViewModel {
 
 
     private SplashListener listener ;
-    private CompositeSubscription subscription;
+
 
 
     @Inject

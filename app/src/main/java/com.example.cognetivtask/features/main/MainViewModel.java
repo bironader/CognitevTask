@@ -1,25 +1,22 @@
 package com.example.cognetivtask.features.main;
 
 import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
 import android.location.Location;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.cognetivtask.LocationService;
+import com.example.cognetivtask.data.models.FourSquarResponse;
 import com.example.cognetivtask.data.models.Place;
 import com.example.cognetivtask.data.models.Response;
 import com.example.cognetivtask.data.remote.PlacesApi;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.tbruyelle.rxpermissions.RxPermissions;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -29,35 +26,43 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 import timber.log.Timber;
 
-public class MainViewModel extends ViewModel implements OnSuccessListener<Location>, OnFailureListener {
+public class MainViewModel extends ViewModel implements LocationService.LocationChanged {
 
 
     private final MutableLiveData<List<Place>> places = new MutableLiveData<>();
     private final MutableLiveData<Boolean> repoLoadError = new MutableLiveData<>();
     private final MutableLiveData<Boolean> loading = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isPermissionGranted = new MutableLiveData<>();
-    private Location location;
-    private FusedLocationProviderClient mFusedLocationClient;
+    private final MutableLiveData<Boolean> isLocationEnabled = new MutableLiveData<>();
     private CompositeDisposable disposable;
+    private PlacesApi placesApi;
+    private LocationService locationService;
+    private String token;
+    private String version;
 
     @Inject
-    PlacesApi placesApi;
-    @Inject
-    Context context;
-
-
-    @Inject
-    MainViewModel() {
+    MainViewModel(PlacesApi placesApi, LocationService locationService) {
         disposable = new CompositeDisposable();
-        mFusedLocationClient = LocationServices
-                .getFusedLocationProviderClient(context);
+        this.placesApi = placesApi;
+        this.locationService = locationService;
 
     }
 
+    void setRequestParm(String token, String version) {
+
+        this.token = token;
+        this.version = version;
+    }
+
+
+    void initLocationService(LocationService locationService) {
+        locationService.setLocationChanged(this);
+        locationService.requestLocation();
+    }
 
     private void fetchPlaces(String locationParm) {
         loading.setValue(true);
-        disposable.add(placesApi.getPlaces(locationParm, "asd")
+        disposable.add(placesApi.getPlaces(locationParm, token, version)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(this::onSuccess, this::onError));
@@ -71,10 +76,10 @@ public class MainViewModel extends ViewModel implements OnSuccessListener<Locati
         repoLoadError.setValue(true);
     }
 
-    private void onSuccess(Response response) {
+    private void onSuccess(FourSquarResponse response) {
         loading.setValue(false);
         repoLoadError.setValue(false);
-        places.setValue(response.places);
+        places.setValue(response.getResponse().getPlaces());
 
 
     }
@@ -95,40 +100,26 @@ public class MainViewModel extends ViewModel implements OnSuccessListener<Locati
         return isPermissionGranted;
     }
 
+    LiveData<Boolean> getLocationStatus() {
+        return isLocationEnabled;
+    }
+
+    ;
 
     void checkLocationPermission(RxPermissions rxPermissions) {
+
+        isLocationEnabled.setValue(locationService.isLocationEnabled());
         rxPermissions.request(Manifest.permission.ACCESS_FINE_LOCATION)
-                .subscribe(granted -> {
-                    if (granted)
-                        isPermissionGranted.setValue(true);
-
-                    else
-                        isPermissionGranted.setValue(false);
-                });
-    }
-
-    void getLastKnownUserLocation() {
-        if (ActivityCompat.checkSelfPermission(context,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-
-            mFusedLocationClient.getLastLocation()
-                    .addOnSuccessListener(this)
-                    .addOnFailureListener(this);
-        } else
-            isPermissionGranted.setValue(false);
-    }
-
-
-    @Override
-    public void onSuccess(Location userLocation) {
-
-        fetchPlaces(userLocation.getLatitude() + "," + userLocation.getLongitude());
-
+                .subscribe(isPermissionGranted::setValue);
     }
 
     @Override
-    public void onFailure(@NonNull Exception e) {
+    public void onLocationChangedListener(Location location) {
 
-        Timber.e(e);
+        fetchPlaces(location.getLatitude() + "," + location.getLongitude());
+
+
     }
+
+
 }

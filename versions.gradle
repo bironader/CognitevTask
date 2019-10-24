@@ -39,9 +39,7 @@ ext {
     ]
 
     googlePlayServiceDeps = [
-            authentication   : "com.google.android.gms:play-services-auth:$versions.googleAuth",
-            firebaseAuth     : "com.google.firebase:firebase-auth:$versions.firebaseAuth",
-            firebaseMessaging: "com.google.firebase:firebase-messaging:$versions.cloudMessaging",
+
             location         : "com.google.android.gms:play-services-location:$versions.location"
     ]
 

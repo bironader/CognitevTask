@@ -1,5 +1,6 @@
 package com.example.cognetivtask.data.remote;
 
+import com.example.cognetivtask.data.models.FourSquarResponse;
 import com.example.cognetivtask.data.models.Response;
 
 import java.util.List;
@@ -13,5 +14,6 @@ public interface PlacesApi {
 
     // /users/id
     @GET("venues/search")
-    Observable<Response> getPlaces(@Query("near") String location, @Query("oauth_token") String access_token);
+    Observable<FourSquarResponse> getPlaces(@Query("near") String location, @Query("oauth_token") String access_token
+            , @Query("v") String version);
 }

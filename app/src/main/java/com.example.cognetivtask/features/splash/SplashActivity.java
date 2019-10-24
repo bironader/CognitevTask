@@ -42,8 +42,8 @@ public class SplashActivity extends DaggerAppCompatActivity implements SplashVie
         SplashMainBinding splashMainBinding = DataBindingUtil.setContentView(this, R.layout.splash_main);
         splashViewModel = ViewModelProviders.of(this, viewModelProviderFactory).get(SplashViewModel.class);
         splashMainBinding.setSplashViewModel(splashViewModel);
-
         splashViewModel.setListener(this);
+        updateUi();
 
     }
 
@@ -85,13 +85,15 @@ public class SplashActivity extends DaggerAppCompatActivity implements SplashVie
     @Override
     public void saveToken(String token) {
 
-        prefBuilder.addString(Constants.TOKEN_TAG, token);
+        prefBuilder.addString(Constants.TOKEN_TAG, token).save();
     }
 
     @Override
     public void updateUi() {
 
-        if (!prefBuilder.getString(Constants.TOKEN_TAG, "").isEmpty())
+        Boolean isLoggedIn = !prefBuilder.getString(Constants.TOKEN_TAG, "").isEmpty();
+        String token = prefBuilder.getString(Constants.TOKEN_TAG,"");
+        if (isLoggedIn)
             startActivity(new Intent(this, MainActivity.class));
 
     }
