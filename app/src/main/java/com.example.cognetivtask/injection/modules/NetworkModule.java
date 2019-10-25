@@ -96,6 +96,7 @@ public abstract class NetworkModule {
             request = request.newBuilder()
                     .addHeader("Content-Type", "application/json")
                     .addHeader("X-Requested-With", " XMLHttpRequest")
+                    .addHeader("Accept-Language", "en")
                     .build();
             return chain.proceed(request);
 

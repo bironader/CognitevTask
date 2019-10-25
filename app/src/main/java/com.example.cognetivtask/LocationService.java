@@ -26,7 +26,7 @@ import javax.inject.Inject;
 
 public class LocationService {
 
-    private static final long UPDATE_INTERVAL = 10 * 1000;  /* 10 secs */
+    private static final long UPDATE_INTERVAL = 120 * 1000;  /* 2m */
     private static final long FASTEST_INTERVAL = 2000; /* 2 sec */
 
     private Context context;

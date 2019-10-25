@@ -1,16 +1,23 @@
-package com.example.cognetivtask.data.models;
+package com.example.cognetivtask.data.responses.places;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class FourSquarResponse {
+import java.util.List;
+
+public class PlacesResponse  {
 
     @SerializedName("response")
     @Expose
     private Response response;
 
+
     public Response getResponse() {
         return response;
+    }
+
+    public List<Item> getItems() {
+        return this.response.getGroups().get(0).getItems();
     }
 
     public void setResponse(Response response) {

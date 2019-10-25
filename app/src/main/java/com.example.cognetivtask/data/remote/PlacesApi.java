@@ -1,19 +1,21 @@
 package com.example.cognetivtask.data.remote;
 
-import com.example.cognetivtask.data.models.FourSquarResponse;
-import com.example.cognetivtask.data.models.Response;
+import com.example.cognetivtask.data.responses.photos.PhotoRespone;
+import com.example.cognetivtask.data.responses.places.PlacesResponse;
 
-import java.util.List;
-
-import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface PlacesApi {
 
-    // /users/id
-    @GET("venues/search")
-    Observable<FourSquarResponse> getPlaces(@Query("near") String location, @Query("oauth_token") String access_token
+
+    @GET("venues/{id}/photos")
+    Observable<PhotoRespone> getPhotos(@Path("id") String id, @Query("oauth_token") String access_token
+            , @Query("v") String version);
+
+    @GET("venues/explore")
+    Observable<PlacesResponse> getPlaces(@Query("near") String location, @Query("limit") int limit, @Query("oauth_token") String access_token
             , @Query("v") String version);
 }

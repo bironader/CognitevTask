@@ -2,4 +2,6 @@
 <resources>
     <dimen name="toolbar_elevation">4dp</dimen>
     <dimen name="list_padding">16dp</dimen>
+    <dimen name="list_margin">12dp</dimen>
+    <dimen name="card_elecation">4dp</dimen>
 </resources>
