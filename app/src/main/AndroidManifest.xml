@@ -24,7 +24,6 @@
             tools:ignore="InnerclassSeparator" />
         <activity
             android:name="com.example.cognetivtask.features.splash.SplashActivity"
-            android:noHistory="true"
             tools:ignore="InnerclassSeparator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

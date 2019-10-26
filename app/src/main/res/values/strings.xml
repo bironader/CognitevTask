@@ -4,11 +4,12 @@
     <string name="client_secret">NIHW4ZEY4WXPHYTGIKTBEG0RRE2MH2ULYLCUCUGIT54XLXKQ</string>
     <string name="login">Login With FourSquare</string>
     <string name="no_permissions">No permission granted ):</string>
-    <string name="location_provider_check">Make sure your location is enabled</string>
+    <string name="location_provider_check">Your gps is disable can\'t load data</string>
     <string name="real_time">Real Time</string>
-    <string name="photo_error">Cant load photos Four Square has a limit request on photos end point ):</string>
-    <string name="limit_veunue_exceed">Four Square give a limit number request per a day</string>
+    <string name="photo_error">Can\'t load photos FourSquare provide a limit number requests on photos end point ):</string>
+    <string name="limit_veunue_exceed">FourSquare provide a limit number requests per a day</string>
     <string name="time_out">Request time out</string>
     <string name="app_is_restrating">App is Restarting to confirm changes</string>
+    <string name="foursquare_app">Install FourSquare to Authenticate</string>
 
 </resources>

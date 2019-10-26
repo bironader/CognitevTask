@@ -2,6 +2,7 @@ package com.example.cognetivtask.features.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
@@ -68,6 +69,7 @@ public class SplashActivity extends DaggerAppCompatActivity implements SplashVie
         Intent intent = FoursquareOAuth.getConnectIntent(SplashActivity.this, getString(R.string.client_id));
         if (FoursquareOAuth.isPlayStoreIntent(intent)) {
             startActivity(intent);
+            Toast.makeText(this,getResources(). getString(R.string.foursquare_app), Toast.LENGTH_LONG).show();
         } else {
             startActivityForResult(intent, REQUEST_CODE_FSQ_CONNECT);
 

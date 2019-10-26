@@ -64,8 +64,8 @@ public class MainViewModel extends ViewModel implements LocationService.Location
 
 
     void initLocationService(LocationService locationService) {
-        locationService.setLocationCallBacks(this);
-        locationService.requestLocation(isRealTime.getValue());
+
+        requestLocationUpdates();
     }
 
     void setStoredMode(Boolean storedMode) {
@@ -175,10 +175,18 @@ public class MainViewModel extends ViewModel implements LocationService.Location
 
         isRealTime.setValue(isChecked);
         locationService.removeCurrentUpdate();
-        locationService.requestLocation(isRealTime.getValue());
+        requestLocationUpdates();
+
 
     }
 
+    private void requestLocationUpdates() {
+        if (isLocationEnabled.getValue())
+            locationService.requestLocation(isRealTime.getValue());
+        else
+            isFirstRequest.setValue(false);
+        locationService.setLocationCallBacks(this);
+    }
 
     @Override
     public void onLocationChanged(Location location) {

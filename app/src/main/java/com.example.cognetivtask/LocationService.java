@@ -22,7 +22,7 @@ import static com.google.android.gms.location.LocationServices.getFusedLocationP
 
 public class LocationService {
 
-    private static final long UPDATE_INTERVAL = 30 * 1000;  /* 2m */
+    private static final long UPDATE_INTERVAL = 10 * 1000;  /* 2m */
     private static final long FASTEST_INTERVAL = 2000; /* 2 sec */
 
     private Context context;
@@ -54,6 +54,8 @@ public class LocationService {
         } else
             mLocationRequest.setNumUpdates(1);  // single update mode
 
+        mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
+        mLocationRequest.setInterval(UPDATE_INTERVAL);
         // Create LocationSettingsRequest object using location request
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder();
         builder.addLocationRequest(mLocationRequest);
