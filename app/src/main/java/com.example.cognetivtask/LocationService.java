@@ -104,7 +104,6 @@ public class LocationService {
     public interface LocationListener {
 
         void onLocationChanged(Location location); // real time mode
-
     }
 
 
