@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="android.view.View"/>
+
+        <import type="android.view.View" />
+
         <variable
             name="mainViewModel"
             type="com.example.cognetivtask.features.main.MainViewModel" />
@@ -17,9 +19,42 @@
         android:orientation="vertical"
         tools:context="com.example.cognetivtask.features.main.MainActivity">
 
-        <include
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:elevation="@dimen/toolbar_elevation"
+            android:orientation="vertical"
+            tools:targetApi="lollipop">
 
-            layout="@layout/toolbar" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="@string/app_name"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@android:color/white" />
+
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/mode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:checked="@{mainViewModel.isRealTime}"
+                    android:gravity="center"
+                    android:onCheckedChanged="@{(button, bool)-> mainViewModel.onChangeModeListener(button,bool)}"
+                    android:text="@string/real_time"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
 
 
         <ProgressBar
@@ -35,7 +70,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="@{mainViewModel.isConnected ? View.GONE : View.VISIBLE}">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -44,7 +79,7 @@
                 android:drawableTop="@drawable/ic_cloud_off_136dp"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp"
-                tools:text="something went wrong" />
+                android:text="something went wrong" />
 
         </FrameLayout>
 

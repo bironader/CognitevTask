@@ -54,6 +54,8 @@ dependencies {
     // ViewModel and LiveData
     implementation "androidx.lifecycle:lifecycle-extensions:2.1.0"
 
+    // easy Util lib
+    implementation 'com.blankj:utilcode:1.9.12'
 
     debugImplementation 'com.readystatesoftware.chuck:library:1.0.4'
     releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.0.4'
