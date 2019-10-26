@@ -124,6 +124,8 @@ public class MainActivity extends DaggerAppCompatActivity {
         RecyclerView recyclerView = activityMainBinding.placesList;
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         recyclerView.setAdapter(adapter);
+        recyclerView.setNestedScrollingEnabled(false);
+        recyclerView.setHasFixedSize(true);
     }
 
     private void showToast(String text) {
