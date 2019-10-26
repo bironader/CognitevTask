@@ -119,7 +119,7 @@ public class MainViewModel extends ViewModel implements LocationService.Location
 
 
     private Observable<PlacesResponse> placesResponseObservable(String locationParam) {
-        return placesApi.getPlaces(locationParam, 3, token, version)
+        return placesApi.getPlaces(locationParam, 10, token, version)
                 .map(placesResponse -> {
                     showPlaces(placesResponse);
                     return placesResponse;
